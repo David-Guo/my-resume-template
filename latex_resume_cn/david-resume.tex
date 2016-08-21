@@ -1,0 +1,194 @@
+% 请使用 xelatex 编译
+
+\documentclass[14pt,a4paper]{moderncv}
+
+%主题设置
+\moderncvstyle{classic}                     % 选项参数是 ‘casual’, ‘classic’, ‘oldstyle’ 和 ’banking’
+\moderncvcolor{blue} % optional argument are 'blue' (default), 'orange', 'red', 'green', 'grey' and 'roman' (for roman fonts, instead of sans serif fonts)
+
+
+\usepackage{fontspec,xunicode,xltxtra}
+% 设置英文字体
+\defaultfontfeatures{Scale=MatchLowercase} % 设置字体大小，Scale=0.8等
+\setmainfont{Times New Roman} %主字体
+\setsansfont{Times New Roman} %无衬线字体
+\setmonofont{Times New Roman} %等宽字体
+% 设置中文字体
+\usepackage[BoldFont,SlantFont,CJKchecksingle,CJKnumber,CJKtextspaces]{xeCJK}
+\setCJKmainfont{Adobe Heiti Std} %主要中文字体
+\setCJKsansfont{Adobe Heiti Std} %无衬线中文字体
+\setCJKmonofont{Adobe Heiti Std} %等宽中文字体
+
+
+% 设置最后一次更新时间
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[L]{\footnotesize\textit{郭大为个人简历}}
+\fancyfoot[R]{\footnotesize\textit{最后一次更新于: \today}}
+
+% 调整页边距
+\usepackage[scale=0.85]{geometry}
+\setlength{\hintscolumnwidth}{3cm}						% if you want to change the width of the column with the dates
+%\AtBeginDocument{\setlength{\maketitlenamewidth}{6cm}}  % only for the classic theme, if you want to change the width of your name placeholder (to leave more space for your address details
+%\AtBeginDocument{\recomputelengths}                     % required when changes are made to page layout lengths
+
+% 在其他左侧插入标志
+\usepackage{manfnt}
+\newcommand{\hello}{{\tiny\textdbend}}
+
+\linespread{1.2}
+
+% 设置超链接字体颜色
+\AtBeginDocument{
+    \hypersetup{colorlinks,urlcolor=blue}
+}
+
+
+% 设置个人信息
+% \name{\textbf{郭大为}}{\textbf{}}
+\name{郭大为}{}
+% 下面所有信息都是可选的，如果不需要，可以删掉
+\title{\textbf{湖北/男}}
+\address{}{广州市海珠区} 
+\mobile{188-1411-5785} 
+%\phone{phone (optional)}
+%\fax{fax (optional)} 
+\email{guodw3@mail2.sysu.edu.cn} 
+\homepage{david-guo.github.io}          
+%\extrainfo{♂34岁}       
+\photo[64pt]{qr}
+% ‘64pt’是图片必须压缩至的高度、‘0.4pt‘是图片边框的宽度 (如不需要可调节至0pt)
+% ’picture‘ 是图片文件的名字;可选项、如不需要可删除本行
+
+\social[github]{David-Guo}
+\quote{\textit{求职意向：C++工程师、后端开发}}
+
+% to show numerical labels in the bibliography; only useful if you make citations in your resume
+%\makeatletter
+%\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
+%\makeatother
+
+% bibliography with mutiple entries
+% \usepackage{multibib}
+% \newcites{book,misc}{{Books},{Others}}
+
+%\nopagenumbers{}                             % uncomment to suppress automatic page numbering for CVs longer than one page
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+\begin{document}
+\maketitle
+\vspace{-3em}      %缩小段落的间距
+
+\section{\textbf{教育背景}}
+\cventry{2013年 -- 2017年}{学士学位}{中山大学}{信息与计算科学专业}{专业 top 7.5\%}{}
+\vspace{-1em}
+
+\section{\textbf{社区}}
+\cvline{CSDN博客}{\small{\url{blog.csdn.net/u012675539}}, 技术博客}
+\cvline{GitHub}{\small {\url{github.com/David-Guo}}, 活跃}
+\cvline{网页简历}{\small{\url{david-guo.github.io/myresume/resume.pdf}},简要介绍}
+\vspace{-1em}      %缩小段落的间距
+
+\section{\textbf{实习经历}}
+\cventry{2016/05--2016/08}{腾讯微信}{基础产品部}{C++后台开发}{}
+{接手多个模块的开发，具有有代表性的是：
+\begin{itemize}
+\item 布隆过滤器模块，解决海量实时UV计算问题，记录一个用户15天内是否命中某一广告。压测QPS可达 150w/s。请求分发到三台主机，支持机器扩容，缩容，纪录binlog， 支持对帐，读写容灾.
+\item 广告投放记录kv存储模块，将用户id，广告id，投放时间等信息存储到 kv 数据库中，并能通过用户 id 检索出对该用户投放的所有记录.
+\item 实验系统门户网站 CGI，为门户网站增添了部分页面的后台CGI.
+\item 实验系统门户网站数据库模块，用C++封装Mysql语句提供接口给 CGI 调用.
+\item 微信App发现页面附近功能开发，入口在朋友圈下一栏，根据用户地理位置系统推荐美食，主要负责删除评论、衔接配置系统等功能后台逻辑.
+\end{itemize}
+}
+
+\section{\textbf{项目经历}}
+\cventry{2016/08}
+{花草识别}
+{python,caffe}
+{科研项目}{}
+{常见花识别的在线演示，计算部分使用 caffe 在 offord102 数据集上训练CNN经典模型 AlexNet，服务器端采用了基于 python 的 web开发框架 cherrpy}
+
+\cventry{2016/03}
+{二手交易论坛}
+{python}
+{个人项目}{}
+{后端使用 flask 前端使用 bootstrap ，首页使用响应式设计。采用 Nginx + Supervisrod + Gunicorn + Mysql 部署在云平台。
+支持多人注册登录，在线发表文章或评论，上传图片，关注他人，查看关注者；修改个人资料、密码、头像；首页以列表分页方式展示所有文章，并且仅显示文章中的 50 个字，出现图片的则以占位符图片替代。
+\\源码地址：\url{github.com/David-Guo/flaskforum}
+\\部署地址：\url{sysufm.tk}}
+
+\cventry{2015/12}
+{简单Http server\&CGI}
+{c++}
+{课程项目}{}
+{用linux原生socket接口解析http协议并发接受Get请求，开启新的 sock 网络连接访问 ras(remote assess shell) 服务器，读取本地的指令批文件传送给 ras(remote assess shell) ，取回从 ras 计算得到的数据打包成 html 页面返回给浏览器。有 linux 版和 windows 版。
+\\源码地址1：\url{github.com/David-Guo/winsockHttpServer}
+\\源码地址2：\url{github.com/David-Guo/cgi_http}}
+
+\cventry{2015/10}
+{shell 解释器}
+{C++}
+{课程项目}{}
+{实现一个简单的shell解释器，支持如下功能：
+  	解释命令行输入执行指令、
+    shell内建命令cd exit、
+    pipe 管道、
+    fg 前台执行命令、
+    bg 后台执行命令、
+    彩色提示符、
+    Ctrl -Z Ctrl -C 信号处理。
+\\源码地址：\url{github.com/David-Guo/myshell}}
+
+\cventry{2014/12}
+{基于PCA的人脸识别GUI实现}
+{Matlab}
+{课程项目}{}
+{《机器学习》课程上，在查看相关文献，理解PCA与最小距离分类器算法原理后，自己动手用熟悉的MATLAB简单实现了一个GUI界面程序。在Yale人脸库上实验，分类器效果比较理想，准确率高达90\%多。
+\\项目源码：\url{github.com/David-Guo/face_recongnize}}
+
+\cventry{2014/09}
+{基于心电信号的辅助诊断软件}
+{MFC、OpenGL}
+{科研项目}{}
+{主要职责：
+\begin{itemize}
+	\item MFC界面设计实现
+	\item DLL封装与数据库构建
+	\item 实现多层次熵核心算法，嵌入SVM工具箱
+\end{itemize}
+核心算法地址：{\url{david-guo.github.io/2015/05/22/entropy_code/}}}
+
+\section{竞赛经历}
+\cventry{2015.5}
+{世界大学生超级计算机竞赛}{}{}{决赛一等奖}
+{主要负责：在队伍搭建起的Centos九计算节点集群上运行、采用大页面，ramdisk 方式优化wrf程序。}
+\cventry{2014.9}
+{2014全国大学生数学建模竞赛}{}{}{三等奖}{}
+\cventry{2014.10}
+{2014全国大学生数学竞赛}{}{}{二等奖}{}
+
+\section{\textbf{IT技能}}
+\cvline{编程语言}{ \small MATLAB == C >= C++ == Python >= shell脚本 }
+\cvline{web框架}{ \small Flask, Nodejs }
+\cvline{开发工具}{\small Linux, Gcc, Vim, Git, VS }
+\cvline{文档编辑}{\small \LaTeX, Markdown}
+\vspace{-1em}      %缩小段落的间距
+
+\section{\textbf{获奖情况}}
+\cvlistdoubleitem{校内二等奖学金(2014、2015)}{国家励志奖学金(2014)}
+\cvlistdoubleitem{中国友好和平发展基金会奖学金(2015)}{}
+\vspace{-1em}      %缩小段落的间距
+
+\section{\textbf{外语}}
+\cvline{英语}{\small CET-6，具备阅读专业英文文献、写作及翻译能力，英文博客翻译曾见诸于CSDN云计算首页}
+%\cvlanguage{英语}{具备阅读专业英文文献能力及写作能力}{CET-6}
+\vspace{-1em}      %缩小段落的间距
+
+\section{\textbf{其他}}
+\cvline{\hello}{靠谱，责任心强，乐于助人；熟悉 linux 编程API，熟悉TCP/IP协议族。数学功底扎实，擅长查看文献；轻度代码洁癖；具有较好的人际沟通、协调和组织能力;}
+%\cvlistitem{}
+
+\end{document}
